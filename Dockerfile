@@ -43,7 +43,7 @@ VOLUME /tmp
 
 WORKDIR /opt
 
-COPY --from=build /ontop/build/distribution/target/ontop-cli*.zip /opt
+COPY --from=build /ontop/build/distribution/ontop-cli/ontop-cli*.zip /opt
 
 RUN mkdir /opt/ontop
 
@@ -60,31 +60,3 @@ EXPOSE 8080
 WORKDIR /opt/ontop
 
 ENTRYPOINT ./entrypoint.sh
-
-
-
-# WORKDIR /ontop/build/distribution/target
-
-# RUN unzip -o ontop-cli*.zip -d ontop
-
-# WORKDIR /ontop/build/distribution/target/ontop
-
-# RUN rm -r ontop.bat ontop ontop-completion.sh jdbc
-
-# RUN cp ${ONTOP_HOME}/client/docker/entrypoint.sh .
-
-# FROM openjdk:8-jdk-alpine
-
-# RUN apk add --no-cache bash
-
-# VOLUME /tmp
-
-# RUN mkdir -p /opt/ontop
-
-# COPY --from=build /ontop/build/distribution/target/ontop /opt/ontop/
-
-# EXPOSE 8080
-
-# WORKDIR /opt/ontop
-
-# ENTRYPOINT ./entrypoint.sh
