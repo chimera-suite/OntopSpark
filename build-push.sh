@@ -1,8 +1,7 @@
 # /bin/bash
 
-git checkout feature/spark
+git rebase feature/spark
 
-tag=$(git rev-parse --short HEAD)
+tag=$(git rev-parse --short feature/spark)
 
 docker build -t chimera/ontop:${tag} .
-
